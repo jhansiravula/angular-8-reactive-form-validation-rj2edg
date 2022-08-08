@@ -1,0 +1,32 @@
+<!-- main app container -->
+<div class="card m-3">
+  <div class="card-body">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group col">
+          <label>TextBox1</label>
+          <input
+            type="text"
+            formControlName="textbox1"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.textbox1.errors }"
+          />
+          <div *ngIf="f.textbox1.errors.required">textbox1 is required</div>
+          <div *ngIf="f.textbox1.errors.minlength">
+            textbox1 must be at least 6 character.
+          </div>
+        </div>
+        <div class="form-group col">
+          <label>textBox2</label>
+          <input
+            type="text"
+            formControlName="textbox2"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.textbox2.errors }"
+          />
+          <div *ngIf="f.textbox2.errors.required">textbox2 is required</div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
